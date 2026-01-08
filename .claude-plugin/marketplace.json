@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "amplifier-skills-marketplace",
+  "description": "Amplifier design philosophy and DDD workflow plugins",
+  "owner": {
+    "name": "driller"
+  },
+  "plugins": [
+    {
+      "name": "amplifier-skills",
+      "description": "Amplifier design philosophy, development skills, and Document-Driven Development (DDD) workflow for Claude Code",
+      "version": "1.0.0",
+      "author": {
+        "name": "driller"
+      },
+      "source": "./",
+      "category": "development",
+      "homepage": "https://github.com/drillan/amplifier-skills-plugin"
+    }
+  ]
+}
