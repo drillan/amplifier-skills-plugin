@@ -30,6 +30,19 @@ claude plugin marketplace add drillan/amplifier-skills-plugin
 claude plugin install amplifier-skills
 ```
 
+### Reinstall / Update
+
+```bash
+# Uninstall existing plugin
+claude plugin uninstall amplifier-skills
+
+# Update marketplace
+claude plugin marketplace update drillan/amplifier-skills-plugin
+
+# Reinstall plugin
+claude plugin install amplifier-skills
+```
+
 ## Skills
 
 | Skill | Description |
