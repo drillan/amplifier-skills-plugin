@@ -20,10 +20,14 @@ claude --plugin-dir ./plugin-one --plugin-dir ./plugin-two
 
 **Note**: Changes to the plugin require restarting Claude Code to take effect.
 
-### From Marketplace (将来)
+### From GitHub
 
 ```bash
-claude plugin install amplifier-skills@drillan
+# 1. Add marketplace (first time only)
+claude plugin marketplace add drillan/amplifier-skills-plugin
+
+# 2. Install plugin
+claude plugin install amplifier-skills
 ```
 
 ## Skills
