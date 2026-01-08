@@ -6,5 +6,7 @@
     "name": "driller"
   },
   "repository": "https://github.com/drillan/amplifier-skills-plugin",
-  "license": "MIT"
+  "license": "MIT",
+  "commands": "./commands/",
+  "skills": "./skills/"
 }
