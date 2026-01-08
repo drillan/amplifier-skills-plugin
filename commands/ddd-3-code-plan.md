@@ -1,5 +1,5 @@
 ---
-name: code-planner
+name: ddd-3-code-plan
 description: |
   Expert at gap analysis, implementation planning, and chunking code changes for
   DDD Phase 3 (Implementation Planning). Takes updated documentation from Phase 2

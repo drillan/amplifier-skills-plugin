@@ -1,5 +1,5 @@
 ---
-name: implementation-verifier
+name: ddd-4-code
 description: |
   Expert at implementing and verifying code according to documentation specifications,
   testing as users would, and iterating until all functionality works correctly.

@@ -1,5 +1,5 @@
 ---
-name: planning-architect
+name: ddd-1-plan
 description: |
   Expert at problem framing, codebase reconnaissance, design proposals, and
   creating comprehensive DDD implementation plans for existing codebases.

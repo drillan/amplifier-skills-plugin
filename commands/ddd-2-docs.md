@@ -1,5 +1,5 @@
 ---
-name: documentation-retroner
+name: ddd-2-docs
 description: |
   Expert at documentation updates using DDD Phase 2 techniques: file crawling,
   retcon writing, DRY enforcement, and context poisoning prevention.

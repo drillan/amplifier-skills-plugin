@@ -1,5 +1,5 @@
 ---
-name: finalization-specialist
+name: ddd-5-finish
 description: |
   Expert at final testing, cleanup, and delivery preparation for DDD workflow.
   Handles integration testing, artifact cleanup, philosophy compliance checks,
