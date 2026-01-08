@@ -1,0 +1,7 @@
+[project]
+name = "amplifier-skills-plugin"
+version = "1.0.0"
+description = "Claude Code Plugin for Amplifier skills and DDD workflow"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []

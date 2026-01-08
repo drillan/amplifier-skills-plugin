@@ -3,7 +3,7 @@
 sync_ddd.py - DDDコレクションをamplifier-skills-pluginに同期
 
 Usage:
-    uv run python scripts/sync_ddd.py [--dry-run]
+    python scripts/sync_ddd.py [--dry-run]
 """
 
 from __future__ import annotations
@@ -19,13 +19,13 @@ from pathlib import Path
 SOURCE_REPO = "https://github.com/robotdad/amplifier-collection-ddd"
 PLUGIN_ROOT = Path(__file__).parent.parent
 
-# エージェント → コマンド マッピング
+# エージェント → コマンド マッピング (フラット構造)
 AGENT_TO_COMMAND = {
-    "planning-architect.md": "1-plan.md",
-    "documentation-retroner.md": "2-docs.md",
-    "code-planner.md": "3-code-plan.md",
-    "implementation-verifier.md": "4-code.md",
-    "finalization-specialist.md": "5-finish.md",
+    "planning-architect.md": "ddd-1-plan.md",
+    "documentation-retroner.md": "ddd-2-docs.md",
+    "code-planner.md": "ddd-3-code-plan.md",
+    "implementation-verifier.md": "ddd-4-code.md",
+    "finalization-specialist.md": "ddd-5-finish.md",
 }
 
 # 参照パス変換ルール
@@ -168,10 +168,26 @@ def inject_credit(content: str) -> str:
     return CREDIT_COMMENT + content
 
 
+def update_frontmatter_name(content: str, new_name: str) -> str:
+    """フロントマターのname:フィールドを更新"""
+    if not content.startswith("---"):
+        return content
+
+    parts = content.split("---", 2)
+    if len(parts) < 3:
+        return content
+
+    frontmatter = parts[1]
+    # name: を置換
+    frontmatter = re.sub(r"^name:\s*.*$", f"name: {new_name}", frontmatter, flags=re.MULTILINE)
+
+    return f"---{frontmatter}---{parts[2]}"
+
+
 def convert_agents_to_commands(source_dir: Path, dry_run: bool = False) -> list[Path]:
-    """agents/ → commands/ddd/ に変換"""
+    """agents/ → commands/ に変換（フラット構造）"""
     agents_dir = source_dir / "agents"
-    commands_dir = PLUGIN_ROOT / "commands" / "ddd"
+    commands_dir = PLUGIN_ROOT / "commands"
 
     if not agents_dir.exists():
         raise FileNotFoundError(f"agents directory not found: {agents_dir}")
@@ -188,6 +204,10 @@ def convert_agents_to_commands(source_dir: Path, dry_run: bool = False) -> list[
         content = source_path.read_text()
         content = transform_references(content)
         content = inject_credit(content)
+
+        # フロントマターのnameをファイル名に合わせる（サジェスト用）
+        command_name = command_file.replace(".md", "")
+        content = update_frontmatter_name(content, command_name)
 
         if dry_run:
             print(f"  [DRY-RUN] Would create: {target_path}")

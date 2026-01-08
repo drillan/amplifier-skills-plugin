@@ -77,9 +77,13 @@ This plugin includes content from:
 
 ### Sync DDD from upstream
 
+Manual sync:
+
 ```bash
-uv run python scripts/sync_ddd.py
+python scripts/sync_ddd.py
 ```
+
+Automated sync via GitHub Actions runs weekly (Monday 18:00 JST) or can be triggered manually from the Actions tab.
 
 ### Testing
 
