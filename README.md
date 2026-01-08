@@ -45,24 +45,24 @@ Document-Driven Development workflow commands for systematic feature implementat
 
 | Command | Phase | Description |
 |---------|-------|-------------|
-| `/amplifier-skills:ddd:1-plan` | 0-1 | Planning and design |
-| `/amplifier-skills:ddd:2-docs` | 2 | Documentation retcon |
-| `/amplifier-skills:ddd:3-code-plan` | 3 | Code implementation planning |
-| `/amplifier-skills:ddd:4-code` | 4-5 | Implementation and testing |
-| `/amplifier-skills:ddd:5-finish` | 6 | Finalization and cleanup |
+| `/amplifier-skills:ddd-1-plan` | 0-1 | Planning and design |
+| `/amplifier-skills:ddd-2-docs` | 2 | Documentation retcon |
+| `/amplifier-skills:ddd-3-code-plan` | 3 | Code implementation planning |
+| `/amplifier-skills:ddd-4-code` | 4-5 | Implementation and testing |
+| `/amplifier-skills:ddd-5-finish` | 6 | Finalization and cleanup |
 
 ### DDD Workflow
 
 ```
-/amplifier-skills:ddd:1-plan "Add feature X"
+/amplifier-skills:ddd-1-plan "Add feature X"
   ↓ Creates ai_working/ddd/plan.md
-/amplifier-skills:ddd:2-docs
+/amplifier-skills:ddd-2-docs
   ↓ Updates documentation
-/amplifier-skills:ddd:3-code-plan
+/amplifier-skills:ddd-3-code-plan
   ↓ Creates ai_working/ddd/code_plan.md
-/amplifier-skills:ddd:4-code
+/amplifier-skills:ddd-4-code
   ↓ Implements code
-/amplifier-skills:ddd:5-finish
+/amplifier-skills:ddd-5-finish
   ↓ Tests and commits
 ```
 
@@ -90,7 +90,7 @@ claude --plugin-dir .
 Then verify:
 - `/help` shows plugin commands under custom-commands tab
 - Skills are loadable
-- DDD commands work (e.g., `/amplifier-skills:ddd:1-plan`)
+- DDD commands work (e.g., `/amplifier-skills:ddd-1-plan`)
 
 ## License
 
