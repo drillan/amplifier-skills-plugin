@@ -49,7 +49,6 @@ claude plugin install amplifier-skills
 |-------|-------------|
 | amplifier-philosophy | Amplifier design philosophy using Linux kernel metaphor |
 | module-development | Guide for creating new Amplifier modules |
-| python-standards | Python coding standards for Amplifier |
 | ddd-guide | Document-Driven Development workflow guide |
 
 ## DDD Commands
