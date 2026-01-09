@@ -1,0 +1,46 @@
+name: Sync with Amplifier Core
+
+on:
+  schedule:
+    # 毎週月曜日 9:00 UTC (18:00 JST) に実行
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    # 手動実行も可能
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync script
+        run: python scripts/sync_amplifier_core.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet || echo "has_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "chore: Sync with upstream microsoft/amplifier-core
+
+          Automated sync from https://github.com/microsoft/amplifier-core
+
+          Generated with [Amplifier](https://github.com/microsoft/amplifier)
+
+          Co-Authored-By: Amplifier <240397093+microsoft-amplifier@users.noreply.github.com>"
+          git push
